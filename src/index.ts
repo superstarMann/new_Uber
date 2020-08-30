@@ -1,15 +1,24 @@
-import {Options} from "graphql-yoga";
+import dotenv from 'dotenv';
+import { Options } from "graphql-yoga";
+import {createConnection} from 'typeorm'
 import app from "./app";
-const PORT: number | string = process.env.PORT || 4000;
-const PLAYGROUND: string = "/playground";
-const ENDPOINT: string = "/graphql";
+import connectionOptions from "./ormConfig";
 
-const appOption : Options = {
-    port: PORT,
-    playground: PLAYGROUND,
-    endpoint: ENDPOINT
+dotenv.config()
+
+const PORT: number | string = process.env.PORT || 4000;
+const PLAYGROUND_ENDPOINT: string = "/playground";
+const GRAPHQL_ENDPOINT: string = "/graphql";
+
+const appOptions: Options = {
+  port: PORT,
+  playground: PLAYGROUND_ENDPOINT,
+  endpoint: GRAPHQL_ENDPOINT
 };
 
-const handleAppStart = () => console.log(`working on port ${PORT}😎😎`)
+const handleAppStart = () => console.log(`Banana! ${PORT}`);
 
-app.start(appOption,handleAppStart);
+createConnection(connectionOptions).then(() => {
+  app.start(appOptions, handleAppStart);
+})
+.catch(error => console.log(error));
