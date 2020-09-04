@@ -24,14 +24,12 @@ const resolvers: Resolvers = {
           await sendVerificationSMS(newVerification.payload, newVerification.key);
           return {
             ok: true,
-            error: null,
-            token: null
+            error: null
           };
         } catch (error) {
           return {
             ok: false,
-            error: error.message,
-            token:null
+            error: error.message
           };
         }
       }

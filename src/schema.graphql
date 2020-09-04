@@ -110,7 +110,6 @@ type Query {
 type StartPhoneVerificationResponse {
   ok: Boolean!
   error: String
-  token: String
 }
 
 type Verification {
