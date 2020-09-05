@@ -1,3 +1,4 @@
+import { Query } from './../../../types/graphql.d';
 import User from "../../../entities/User";
 import {
   FacebookConnectMutationArgs,
