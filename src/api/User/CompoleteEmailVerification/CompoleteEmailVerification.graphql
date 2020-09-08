@@ -1,0 +1,8 @@
+type CompoleteEmailVerificationResponse {
+ ok: Boolean!
+ error: String
+}
+
+type Mutation {
+ CompoleteEmailVerification(key: String!):CompoleteEmailVerificationResponse!
+}

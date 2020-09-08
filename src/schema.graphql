@@ -44,18 +44,25 @@ type Ride {
   updatedAt: String
 }
 
-type CompoletePhoneVerificationResponse {
+type CompoleteEmailVerificationResponse {
   ok: Boolean!
   error: String
-  token: String
 }
 
 type Mutation {
+  CompoleteEmailVerification(key: String!): CompoleteEmailVerificationResponse!
   CompoletePhoneVerification(phoneNumber: String!, key: String!): CompoletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(firstName: String!, lastName: String!, email: String!, password: String!, profilePhoto: String!, age: Int!, phoneNumber: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  RequestEmailVerification: RequestEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
+}
+
+type CompoletePhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+  token: String
 }
 
 type EmailSignInResponse {
@@ -84,6 +91,11 @@ type GetMyProfileResponse {
 
 type Query {
   GetMyProfile: GetMyProfileResponse!
+}
+
+type RequestEmailVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type User {
