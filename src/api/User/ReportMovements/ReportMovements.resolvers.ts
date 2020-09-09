@@ -1,19 +1,15 @@
-import { UpdateMyProfileMutationArgs, UpdateMyProfileResponse } from './../../../types/graphql.d';
+import { ReportMovementsMutationArgs, ReportMovementsResponse } from './../../../types/graphql.d';
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/resolverMiddleware";
 import User from '../../../entities/User';
 import cleanNullArgs from '../../../utils/cleanNullArgs';
 
-const resolvers : Resolvers = {
+const resolvers: Resolvers = {
     Mutation: {
-        UpdateMyProfile:privateResolver(async( _,args:UpdateMyProfileMutationArgs, {req}): Promise<UpdateMyProfileResponse> => {
-            const user = req.user;
+        ReportMovements:privateResolver(async(_, args: ReportMovementsMutationArgs, {req}): Promise<ReportMovementsResponse> => {
+            const user: User = req.user;
             const notNull = cleanNullArgs(args);
             try{
-                if(args.password !== null){
-                    user.password = args.password;
-                    user.save()
-                }
                 await User.update({id: user.id}, {...notNull});
                 return{
                     ok: true,
@@ -23,7 +19,7 @@ const resolvers : Resolvers = {
                 return{
                     ok: false,
                     error: error.message
-                };
+                }
             }
         })
     }
