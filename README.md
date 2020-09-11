@@ -1,23 +1,24 @@
-# new_Uber
-## Resolvers
 
-### Public Resolvers:
-
-- [ ] Sign In / Sign Up with Facebook
-- [ ] Sign In with Email
-- [ ] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
-- [ ] Sign Up with Email
-
+- [x] Sign In / Sign Up with Facebook
+- [x] Sign In with Email
+- [x] Start Phone Number Verification
+- [x] Complete Phone Number Verification
+- [x] Sign Up with Email
 ---
-
+### Authentication:
+- [x] Generate JWT
+- [x] Verifiy JWT
+---
 ### Private Resolvers:
-
-- [ ] Verify Email
-- [ ] Get my Profile
-- [ ] Update my Profile
-- [ ] Toggle Driving Mode
-@@ -18,3 +26,15 @@ Server for the (N)Uber Clone Course on Nomad Academy. GraphQL, Typescript, NodeJ
+- [x] Get my Profile
+- [x] Request Email Verification
+- [x] Complete Email Verification
+- [x] Update my Profile
+- [x] Toggle Driving Mode
+- [ ] Report Location / Orientation
+- [x] Report Location / Orientation
+- [ ] Add Place
+- [ ] Edit Place
 - [ ] Delete Place
 - [ ] See Nearby Drivers
 - [ ] Subscribe to Nearby Drivers
@@ -28,8 +29,6 @@
 - [ ] Get Chat Room Messages
 - [ ] Subscribe to Chat Room Messages
 - [ ] Send a Chat Message
-
 ## Code Challenge
-
 - [ ] Get Ride History
 - [ ] See Ride Detail
