@@ -22,6 +22,8 @@ type AddPlaceResponse {
 
 type Mutation {
   AddPlace(name: String!, lat: Float!, lng: Float!, adress: String!, isFav: Boolean!): AddPlaceResponse!
+  DeletePlace(placeId: Int!): DeletePlaceResponse!
+  EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse
   CompoleteEmailVerification(key: String!): CompoleteEmailVerificationResponse!
   CompoletePhoneVerification(phoneNumber: String!, key: String!): CompoletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
@@ -34,6 +36,27 @@ type Mutation {
   UpdateMyProfile(firstName: String, lastName: String, email: String, password: String, profilePhoto: String, age: Int): UpdateMyProfileResponse!
 }
 
+type DeletePlaceResponse {
+  ok: Boolean!
+  error: String
+}
+
+type EditPlaceResponse {
+  ok: Boolean!
+  error: String
+}
+
+type GetMyPlacesResponse {
+  ok: Boolean!
+  error: String
+  places: [Place]
+}
+
+type Query {
+  GetMyPlaces: GetMyPlacesResponse!
+  GetMyProfile: GetMyProfileResponse!
+}
+
 type Place {
   id: Int!
   name: String!
@@ -42,6 +65,7 @@ type Place {
   adress: String!
   isFav: Boolean!
   user: User!
+  userId: Int!
   createdAt: String!
   updatedAt: String
 }
@@ -97,10 +121,6 @@ type GetMyProfileResponse {
   ok: Boolean!
   error: String
   user: User
-}
-
-type Query {
-  GetMyProfile: GetMyProfileResponse!
 }
 
 type ReportMovementsResponse {
