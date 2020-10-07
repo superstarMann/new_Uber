@@ -11,7 +11,7 @@ class App {
     public pubSub: any;
     constructor () {
         this.pubSub = new PubSub(); 
-        this.pubSub.ee.setMaxListners(99);
+        this.pubSub.ee.setMaxListeners(99);
         this.app = new GraphQLServer ({
             schema: schema,
             context: req => {

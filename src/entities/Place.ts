@@ -18,7 +18,7 @@ import {
 
     @Column({ type: "double precision", default: 0 })
     lat: number;
-
+  
     @Column({ type: "double precision", default: 0 })
     lng: number;
 
