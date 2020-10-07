@@ -1,6 +1,6 @@
 type Chat {
   id: Int!
-  mssages: [Message]!
+  messages: [Message]!
   participants: [User]!
   createdAt: String!
   updatedAt: String
@@ -21,7 +21,7 @@ type AddPlaceResponse {
 }
 
 type Mutation {
-  AddPlace(name: String!, lat: Float!, lng: Float!, adress: String!, isFav: Boolean!): AddPlaceResponse!
+  AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFav: Boolean!): AddPlaceResponse!
   DeletePlace(placeId: Int!): DeletePlaceResponse!
   EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse
   CompoleteEmailVerification(key: String!): CompoleteEmailVerificationResponse!
@@ -55,6 +55,7 @@ type GetMyPlacesResponse {
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
   GetMyProfile: GetMyProfileResponse!
+  GetNearbyDrivers: GetNearbyDriversResponse!
 }
 
 type Place {
@@ -62,7 +63,7 @@ type Place {
   name: String!
   lat: Float!
   lng: Float!
-  adress: String!
+  address: String!
   isFav: Boolean!
   user: User!
   userId: Int!
@@ -121,6 +122,12 @@ type GetMyProfileResponse {
   ok: Boolean!
   error: String
   user: User
+}
+
+type GetNearbyDriversResponse {
+  ok: Boolean!
+  error: String
+  drivers: [User]
 }
 
 type ReportMovementsResponse {

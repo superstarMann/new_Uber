@@ -3,7 +3,7 @@ type Place {
  name: String!
  lat: Float!
  lng: Float!
- adress: String!
+ address: String!
  isFav: Boolean!
  user: User!
  userId: Int!
