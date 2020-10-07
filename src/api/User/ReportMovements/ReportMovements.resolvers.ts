@@ -20,7 +20,7 @@ const resolvers: Resolvers = {
                 return{
                     ok: false,
                     error: error.message
-                }
+                };
             }
         })
     }
