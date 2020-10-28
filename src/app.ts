@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import logger from 'morgan';
 import schema from './schema';
 import decodeJWT from './utils/decode.JWT';
-import { Response, NextFunction, Request } from 'express';
+import { Response, NextFunction } from 'express';
 
 class App {
     public app: GraphQLServer;
